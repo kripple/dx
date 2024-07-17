@@ -25,6 +25,10 @@
     "react-dom": "*"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "*",
+    "@testing-library/react": "*",
+    "@testing-library/user-event": "*",
+    "@types/node": "*",
     "@types/react": "*",
     "@types/react-dom": "*",
     "@typescript-eslint/eslint-plugin": "*",
@@ -36,6 +40,7 @@
     "eslint-plugin-import": "*",
     "eslint-plugin-react": "*",
     "eslint-plugin-react-hooks": "*",
+    "happy-dom": "*",
     "eslint-plugin-react-refresh": "*",
     "prettier": "*",
     "rollup-plugin-visualizer": "*",

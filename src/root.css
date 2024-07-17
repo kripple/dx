@@ -1,0 +1,128 @@
+:root {
+  --app-height: 300px;
+  --app-width: 300px;
+}
+
+@media screen and (width >= 400px) and (height >= 400px) {
+  :root {
+    --app-height: 400px;
+    --app-width: 400px;
+  }
+}
+
+@media screen and (width >= 500px) and (height >= 500px) {
+  :root {
+    --app-height: 500px;
+    --app-width: 500px;
+  }
+}
+
+@media screen and (width >= 600px) and (height >= 600px) {
+  :root {
+    --app-height: 600px;
+    --app-width: 600px;
+  }
+}
+
+@media screen and (width >= 700px) and (height >= 700px) {
+  :root {
+    --app-height: 700px;
+    --app-width: 700px;
+  }
+}
+
+@media screen and (width >= 800px) and (height >= 800px) {
+  :root {
+    --app-height: 800px;
+    --app-width: 800px;
+  }
+}
+
+@media screen and (width >= 900px) and (height >= 900px) {
+  :root {
+    --app-height: 900px;
+    --app-width: 900px;
+  }
+}
+
+@media screen and (width >= 1000px) and (height >= 1000px) {
+  :root {
+    --app-height: 1000px;
+    --app-width: 1000px;
+  }
+}
+
+@media screen and (min-width: 100vh) {
+  /* Screen width is greater than screen height */
+}
+
+@media screen and (min-height: 100vw) {
+  /* Screen height is greater than screen width */
+
+  @media screen and (height >= 400px) {
+    :root {
+      --app-height: 400px;
+    }
+  }
+
+  @media screen and (height >= 500px) {
+    :root {
+      --app-height: 500px;
+    }
+  }
+
+  @media screen and (height >= 600px) {
+    :root {
+      --app-height: 600px;
+    }
+  }
+
+  @media screen and (height >= 700px) {
+    :root {
+      --app-height: 700px;
+    }
+  }
+
+  @media screen and (height >= 800px) {
+    :root {
+      --app-height: 800px;
+    }
+  }
+
+  @media screen and (height >= 900px) {
+    :root {
+      --app-height: 900px;
+    }
+  }
+
+  @media screen and (height >= 1000px) {
+    :root {
+      --app-height: 1000px;
+    }
+  }
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#root {
+  position: relative;
+  width: var(--app-width);
+  height: var(--app-height);
+}

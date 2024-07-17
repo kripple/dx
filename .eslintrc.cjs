@@ -3,6 +3,11 @@ const disabledRules = {
   'react/prop-types': 'off',
 };
 
+const disableForTest = {
+  '@typescript-eslint/no-explicit-any': 'off',
+  'react-hooks/rules-of-hooks': 'off',
+};
+
 const warnings = {
   '@typescript-eslint/no-unused-vars': [
     'warn',
@@ -86,6 +91,14 @@ const importSortingRules = {
   ],
 };
 
+const defaultRules = {
+  ...disabledRules,
+  ...warnings,
+  ...errors,
+  ...restrictedImports,
+  ...importSortingRules,
+};
+
 module.exports = {
   env: { browser: true, es2020: true, node: true },
   extends: [
@@ -98,6 +111,15 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'prettier',
   ],
+  overrides: [
+    {
+      files: ['**/test/**/*', '**/*.test.*'],
+      rules: {
+        ...defaultRules,
+        ...disableForTest,
+      },
+    },
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -105,13 +127,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint/eslint-plugin', 'react', 'react-refresh'],
   root: true,
-  rules: {
-    ...disabledRules,
-    ...warnings,
-    ...errors,
-    ...restrictedImports,
-    ...importSortingRules,
-  },
+  rules: defaultRules,
   settings: {
     react: {
       version: 'detect',
