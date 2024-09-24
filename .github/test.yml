@@ -1,0 +1,30 @@
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: Fetch commit
+        uses: actions/checkout@v3
+
+      - name: Set SSH key
+        uses: webfactory/ssh-agent@master
+        with:
+          ssh-private-key: ${{ secrets.GITHUB_SSH_KEY }}
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+
+      - name: Set auth token for root
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+
+      - name: Install shared dependencies
+        run: |
+          npm ci --include=dev
+          npm run build
+
+      - name: Lint
+        run: npm run lint
